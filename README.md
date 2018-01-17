@@ -1,8 +1,8 @@
-#  APPARATE MyCoolAgent
+#  APPARATE Template Agent MyCoolAgent
 
-This package contains additional advanced agents for the [APPARATE Path Planner Simulator](https://bitbucket.org/ssardina-research/apparate-simulator). APPARATE allows to simulate agents moving in real-time in [Moving-AI+](http://movingai.com/benchmarks/) maps. 
+This package contains a template to develop agents for the [APPARATE Path Planner Simulator](https://bitbucket.org/ssardina-research/apparate-simulator). APPARATE allows to simulate agents moving in real-time in [Moving-AI+](http://movingai.com/benchmarks/) maps. 
 
-This package only contains agents and path-planners that the agents use. It does *not* contain the infrastructure itself.
+This package only contains a simple DFS version of an agent in `MyCoolAgentDFS.java`. The idea is to develop an agent system and then pack it into a `MyCoolAgent.jar` file.
 
 
 ## Prerequisites
@@ -17,46 +17,19 @@ This package only contains agents and path-planners that the agents use. It does
 
 ## Compiling and Running APPARATE 
 
-jar cvf MyCoolAgent.jar bin/*
+Since the complete APPARATE systme is provided under `lib/`, the same instructions apply to compile and run this agent template. See instructions in [APPARATE Path Planner Simulator](https://bitbucket.org/ssardina-research/apparate-simulator) repository.
 
-    
+Generally, one will build the agent and pack it into a JAR file:
 
-We show here how to compile the framework from CLI (Command Line Interface). 
-
-Compile all agents available in package `agents`:
-
-```
-javac -d bin/ -cp src/:lib/apparate-simulator.jar \
-	`find src/au/edu/rmit/agtgrp/apparate/agents/ -name *.java | xargs`
-```
-
-That should also automatically compile all the path planners used and located in 
-
-To **run** the system from CLI:
-
-```
-java -cp bin/:lib/apparate-simulator.jar \
-    au.edu.rmit.agtgrp.apparate.gui.simviewer.controller.Launcher <config-file>
-```
-
-where:
-
-* `apparate-simulator.jar` is the JAR file for the [APPARATE Path Planner Simulator](https://bitbucket.org/ssardina-research/apparate-simulator) (version 4.0 provided under `lib/`)
-* `au.rmit.ai.agtgrp.apparate.gui.simviewer.controller.Launcher` is the main class that starts the application.
-* `<config-file>` contains all the options for the simulation (an example `config.properties` is included). See below for details.
-
-You can also use the script `./run.sh <conf-file>`
-
-	
-## Agents Provided
+1. Compile using `./compile.sh`. This will leave all `.class` files in `bin/`.
+2. Cd into `bin/`.
+3. Build JAR file: `jar cvf MyCoolAgent.jar *`
 
 
 
 ## Contributors
 
 * Sebastian Sardina (contact - ssardina@gmail.com)
-* Abhijeet Anand
-* Miguel Ramirez
 
 ## License
 
